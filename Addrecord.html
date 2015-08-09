@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+	        <htmL lang="eng">
+	                <head>
+				          <title>Head Office</title>
+					      <meta http-equiv="Content-Language" content="en-us" />
+					      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                          <meta name="viewport" content="width=device-width, initial-scale=1">
+
+							<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+							<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+							<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+							<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+                            
+                                                        
+
+							<script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+							<link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
+
+							<script src="http://datatables.net/release-datatables/extensions/TableTools/js/dataTables.tableTools.js"></script>
+							        
+                          <style type="text/css">
+                                 body  {margin:10px;}
+                                 html  {color: #3B3B3B; font-size:8px; font-family:Calibri;}
+                                 td1   {border:1px gray solid; padding:5px;}
+                                .hhd1  {border:1px gray solid; padding:5px; background-color: #E7E7E7; font-weight: bold;}
+                                .hdsf1 {color: #3366FF;	font-weight: bold;	font-size:17px;}
+                                .bs-example{margin: 20px;}
+                          </style>
+						  
+						    </head>
+	                <body>
+<div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Demo Notes</h3>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li>The maximum file size for uploads in this demo is <strong>999 KB</strong> (default file size is unlimited).</li>
+                <li>Only image files (<strong>JPG, GIF, PNG</strong>) are allowed in this demo (by default there is no file type restriction).</li>
+                <li>Uploaded files will be deleted automatically after <strong>5 minutes or less</strong> (demo files are stored in memory).</li>
+                <li>You can <strong>drag &amp; drop</strong> files from your desktop on this webpage (see <a href="https://github.com/blueimp/jQuery-File-Upload/wiki/Browser-support">Browser support</a>).</li>
+                <li>Please refer to the <a href="https://github.com/blueimp/jQuery-File-Upload">project website</a> and <a href="https://github.com/blueimp/jQuery-File-Upload/wiki">documentation</a> for more information.</li>
+                <li>Built with the <a href="http://getbootstrap.com/">Bootstrap</a> CSS framework and Icons from <a href="http://glyphicons.com/">Glyphicons</a>.</li>
+            </ul>
+        </div>
+    </div>
+	
+	
+	
+	
+	<div class="container">
+    <div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table table-bordered table-hover" id="tab_logic">
+				<thead>
+					<tr >
+						<th class="text-center">
+							#
+						</th>
+						<th class="text-center">
+							Name
+						</th>
+						<th class="text-center">
+							Mail
+						</th>
+						<th class="text-center">
+							Mobile
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id='addr0'>
+						<td>
+						1
+						</td>
+						<td>
+						<input type="text" name='name0'  placeholder='Name' class="form-control"/>
+						</td>
+						<td>
+						<input type="text" name='mail0' placeholder='Mail' class="form-control"/>
+						</td>
+						<td>
+						<input type="text" name='mobile0' placeholder='Mobile' class="form-control"/>
+						</td>
+					</tr>
+                    <tr id='addr1'></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+</div>
+
+
+
+
+
+<script>
+ $(document).ready(function(){
+      var i=1;
+     $("#add_row").click(function(){
+      $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input name='name"+i+"' type='text' placeholder='Name' class='form-control input-md'  /> </td><td><input  name='mail"+i+"' type='text' placeholder='Mail'  class='form-control input-md'></td><td><input  name='mobile"+i+"' type='text' placeholder='Mobile'  class='form-control input-md'></td>");
+
+      $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+      i++; 
+  });
+     $("#delete_row").click(function(){
+    	 if(i>1){
+		 $("#addr"+(i-1)).html('');
+		 i--;
+		 }
+	 });
+
+});
+</script>
+  </body>
+		  </html>
